@@ -4,9 +4,12 @@
 
 import React, { Component } from 'react';
 import Camera from 'react-native-camera';
-import {Text, Image, View, } from 'react-native';
-import PropTypes from 'prop-types'
+import { Text, Image, View, } from 'react-native';
+import ModalContainer from '../containers/ModalContainer'
+import PropTypes from 'prop-types';
+
 import styles from '../styles';
+import LoginContainer from '../containers/LoginContainer'
 
 class Cam extends Component {
   render() {
@@ -25,9 +28,11 @@ class Cam extends Component {
              [CAPTURE]
            </Text>
        </Camera>
+       <ModalContainer />
       </View>
     );
   }
+
   _onCapture = () => {
     const options = {};
     //options.location = ...
@@ -37,5 +42,8 @@ class Cam extends Component {
       .catch(err => console.error(err));
   }
 }
+Cam.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
 
 export default Cam

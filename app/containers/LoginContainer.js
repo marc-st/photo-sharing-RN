@@ -4,22 +4,15 @@
 
 import { connect } from 'react-redux'
 import Login from '../components/Login'
-import { onLogin } from '../actions/camera'
+import { onLogin } from '../actions/login'
 
 /* Map components props to an action dispatch */
-function mapDispatchToProps(dispatch, ownProps){
+function mapDispatchToProps(dispatch){
   return {
-    onLogin: () => {
-      ownProps.navigation.dispatch({type: 'Login'})
+    onLogin: (loggedIn) => {
+      dispatch(onLogin(loggedIn))
     }
   }
 }
-/* Map components props to current state of store */
-function mapStateToProps(state) {
-  return ({
-    loggedIn: state.loggedIn
-  })
-}
-
-const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(Login)
+const LoginContainer = connect(null, mapDispatchToProps)(Login)
 export default LoginContainer

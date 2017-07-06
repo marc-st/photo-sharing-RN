@@ -14,6 +14,7 @@ import styles from './styles'
 /* Redux Logger */
 const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__ });
 
+
 function configureStore(initialState){
   const enhancer = compose(
     applyMiddleware(
@@ -26,6 +27,8 @@ function configureStore(initialState){
 
 /* Create Store instance */
 const store = configureStore({});
+
+console.log(store.getState());
 
 const Root = () => (
   <Provider store={store}>

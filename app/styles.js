@@ -30,6 +30,16 @@ export default StyleSheet.create({
     padding: 10,
     margin: 40,
   },
+  modalContent: {
+    backgroundColor: 'white',
+    padding: 15,
+    height: 160,
+    width: 250,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 4,
+    borderColor: 'rgba(0, 0, 0, 0.1)',
+  },
   cancelPicture: {
     position: 'absolute',
     right: 20,

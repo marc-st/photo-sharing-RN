@@ -15,13 +15,18 @@ class Login extends Component {
           console.log('Login cancelled')
         } else {
           console.log('Login success with permissions: ' + result.grantedPermissions.toString())
-          this.props.onLogin()
+          this._onLogin()
         }
       },
       function (error) {
         console.log('Login fail with error: ' + error)
       }
     )
+  }
+  _onLogin = () => {
+    console.log(this.props);
+    const loggedIn = true;
+    this.props.onLogin(loggedIn);
   }
   render (){
     return (
@@ -33,20 +38,10 @@ class Login extends Component {
       }}>
       <Button
         onPress={this.handleFacebookLogin}
-        title="Continue with fb"
+        title="Continue With Facebook"
       />
       </View>
     );
   }
-  _onLogin(){
-    this.props.onLogin();
-  }
 }
-Login.propTypes = {
-  navigation: PropTypes.object.isRequired,
-};
-Login.navigationOptions = {
-  title: 'Log In',
-};
-
 export default Login
