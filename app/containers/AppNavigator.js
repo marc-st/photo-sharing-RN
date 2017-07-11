@@ -4,10 +4,12 @@ import { addNavigationHelpers, TabNavigator } from 'react-navigation';
 
 import Camera from '../containers/CameraContainer';
 import Feed from '../containers/FeedContainer';
+import Picture from '../containers/PictureContainer';
 
 export const AppNavigator = TabNavigator({
   Feed: { screen: Feed },
   Camera: { screen: Camera },
+  Picture: {screen: Picture },
 });
 
 class App extends Component {

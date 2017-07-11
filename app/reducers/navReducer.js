@@ -1,9 +1,8 @@
 import { AppNavigator } from '../containers/AppNavigator';
 
+// Set the inital state of the app to the Camera
 const initialState = AppNavigator.router.getStateForAction(
   AppNavigator.router.getActionForPathAndParams('Camera'));
-
-console.log(AppNavigator);
 
 export const navReducer = (state = initialState, action) => {
   const nextState = AppNavigator.router.getStateForAction(action, state);

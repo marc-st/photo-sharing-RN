@@ -33,8 +33,8 @@ export default StyleSheet.create({
   modalContent: {
     backgroundColor: 'white',
     padding: 15,
-    height: 160,
-    width: 250,
+    height: 100,
+    width: 230,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,

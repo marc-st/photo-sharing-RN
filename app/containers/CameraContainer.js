@@ -20,6 +20,5 @@ function mapStateToProps(state) {
     path: state.path
   })
 }
-
 const CameraContainer = connect(mapStateToProps, mapDispatchToProps)(Cam)
 export default CameraContainer

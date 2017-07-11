@@ -1,9 +1,12 @@
+/*
+ * Modal Presentational Component
+ */
+
 import React, { Component } from 'react';
 import Modal from 'react-native-modal';
-import { Text, Image, View, Button, } from 'react-native';
+import {View, Button, } from 'react-native';
 import styles from '../styles';
 import LoginContainer from '../containers/LoginContainer';
-import Login from '../components/Login';
 import PropTypes from 'prop-types';
 
 class Mod extends Component {
@@ -18,12 +21,12 @@ class Mod extends Component {
         <Modal isVisible={this.state.visible}
           style={{alignItems: 'center'}}
           animationIn={'slideInUp'}
-          animationInTiming={600}
+          animationInTiming={300}
           animationOut={'slideOutDown'}>
           <View style={styles.modalContent}>
             {this.props.loggedIn ?
             <Button
-              title="Quit"
+              title="Continue"
               onPress={()=> this.setState({visible: false})}/>
             : <LoginContainer /> }
           </View>

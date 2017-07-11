@@ -5,11 +5,11 @@
 import React, { Component } from 'react';
 import Camera from 'react-native-camera';
 import { Text, Image, View, } from 'react-native';
-import ModalContainer from '../containers/ModalContainer'
 import PropTypes from 'prop-types';
 
 import styles from '../styles';
-import LoginContainer from '../containers/LoginContainer'
+import ModalContainer from '../containers/ModalContainer'
+import { PictureContainer } from '../containers/PictureContainer'
 
 class Cam extends Component {
   render() {
@@ -32,14 +32,15 @@ class Cam extends Component {
       </View>
     );
   }
-
   _onCapture = () => {
     const options = {};
     //options.location = ...
     this.camera.capture({metadata: options})
     // call takePicture (action) from props
-      .then((data) => this.props.takePicture(data))
+      .then((data) => this.props.takePicture(data.path))
+      .then(() => this.props.navigation.navigate('Picture'))
       .catch(err => console.error(err));
+
   }
 }
 Cam.propTypes = {
