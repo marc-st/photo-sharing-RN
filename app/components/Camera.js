@@ -8,7 +8,6 @@ import { Text, Image, View, } from 'react-native';
 import PropTypes from 'prop-types';
 
 import styles from '../styles';
-import ModalContainer from '../containers/ModalContainer'
 import { PictureContainer } from '../containers/PictureContainer'
 
 class Cam extends Component {

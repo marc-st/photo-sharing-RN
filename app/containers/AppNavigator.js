@@ -8,10 +8,22 @@ import Picture from '../containers/PictureContainer';
 import Login from '../containers/LoginContainer';
 
 const cameraStack = StackNavigator({
-  Camera: { screen: Camera },
-  Picture: { screen: Picture },
+  Camera: {
+     screen: Camera,
+     navigationOptions: () => ({
+      header: null,
+    }),
+  },
+  Picture: {
+    screen: Picture,
+    navigationOptions: () => ({
+     header: null,
+   }),
+ },
 }, {
   initalRouteName: 'Camera',
+  title: 'Welcome',
+  header: null
 });
 export const AppNavigator = TabNavigator({
   Login: { screen: Login },
