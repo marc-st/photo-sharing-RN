@@ -28,7 +28,6 @@ class Cam extends Component {
              [CAPTURE]
            </Text>
        </Camera>
-       <ModalContainer />
       </View>
     );
   }

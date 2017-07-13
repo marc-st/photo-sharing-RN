@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addNavigationHelpers, TabNavigator } from 'react-navigation';
+import { addNavigationHelpers, TabNavigator, StackNavigator, } from 'react-navigation';
 
 import Camera from '../containers/CameraContainer';
 import Feed from '../containers/FeedContainer';
 import Picture from '../containers/PictureContainer';
+import Login from '../containers/LoginContainer';
 
-export const AppNavigator = TabNavigator({
-  Feed: { screen: Feed },
+const cameraStack = StackNavigator({
   Camera: { screen: Camera },
-  Picture: {screen: Picture },
+  Picture: { screen: Picture },
+}, {
+  initalRouteName: 'Camera',
+});
+export const AppNavigator = TabNavigator({
+  Login: { screen: Login },
+  Home: { screen: cameraStack },
+  Feed: { screen: Feed},
+}, {
+  initialRouteName: 'Login',
 });
 
 class App extends Component {

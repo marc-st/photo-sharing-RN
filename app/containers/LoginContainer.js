@@ -6,6 +6,11 @@ import { connect } from 'react-redux'
 import Login from '../components/Login'
 import { onLogin } from '../actions/login'
 
+function mapStateToProps(state) {
+  return ({
+    loggedIn: state.onLogin.loggedIn
+  })
+}
 /* Map components props to an action dispatch */
 function mapDispatchToProps(dispatch){
   return {
@@ -14,5 +19,5 @@ function mapDispatchToProps(dispatch){
     }
   }
 }
-const LoginContainer = connect(null, mapDispatchToProps)(Login)
+const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(Login)
 export default LoginContainer
