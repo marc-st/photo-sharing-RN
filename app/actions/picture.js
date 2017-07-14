@@ -18,6 +18,6 @@ const startImageUpload = () => {
 }
 const imageUploadComplete = () => {
   return {
-    type: types.IMAGE_UPLOAD_COMPLETE
+    type: types.IMAGE_UPLOAD_COMPLETE,
   }
 }

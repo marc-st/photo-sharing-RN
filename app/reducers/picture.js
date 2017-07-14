@@ -13,7 +13,8 @@ export const uploadImageComplete  = createReducer({}, {
   [types.IMAGE_UPLOAD_COMPLETE](state, action){
     return {
       ...state,
-      uploadFinished: true
+      imageUploading: false,
+      uploadFinished: true,
       }
     }
 });

@@ -1,17 +1,22 @@
 /*
  * Feed container
  */
+import Feed from '../components/Feed'
+import { connect } from 'react-redux'
+import { loadFeed } from '../actions/feed'
 
-import React, { Component } from 'react'
-import { Text, View, TouchableHighlight, } from 'react-native'
+function mapStateToProps(state) {
+  return ({
+    data: state.loadFeed.data
+  })
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    loadFeed: () => {
+      dispatch(loadFeed())
+    }
+  }
+}
 
-const FeedContainer = () => (
-    <View>
-      <TouchableHighlight>
-        <Text>
-          Click Me!
-        </Text>
-      </TouchableHighlight>
-    </View>
-)
+const FeedContainer = connect(mapStateToProps, mapDispatchToProps)(Feed)
 export default FeedContainer

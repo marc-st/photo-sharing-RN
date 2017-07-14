@@ -35,10 +35,13 @@ console.log(store.getState());
 const config = {
   apiKey: "AIzaSyDfs0wyCbVzIDnTr7riI8DtIP7jtnlXQrc",
   authDomain: "photo-sharing-react-native.firebaseio.com",
+  databaseURL: "https://photo-sharing-react-native.firebaseio.com/",
   storageBucket: "photo-sharing-react-native.appspot.com",
 }
 firebase.initializeApp(config)
+
 export const storage = firebase.storage()
+export const database = firebase.database()
 
 const Root = () => (
   <Provider store={store}>

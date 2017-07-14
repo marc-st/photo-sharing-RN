@@ -3,7 +3,7 @@
  */
 
 import React, { Component } from 'react';
-import { Text, Image, View, TouchableHighlight, ActivityIndicator, } from 'react-native';
+import { Text, Image, View, TouchableHighlight, } from 'react-native';
 import PropTypes from 'prop-types'
 
 import styles from '../styles'
@@ -36,19 +36,14 @@ class Picture extends Component {
             </TouchableHighlight>
           </View>
         </View>
-        {this.props.imageUploading &&
-          <View style={styles.loading}>
-            <ActivityIndicator size='large' />
-          </View>
-        }
-        {this.props.uploadFinished && this.props.navigation.navigate('Feed')}
       </View>
     );
   }
-  _sendPicture = () => {
-    console.log(this.props.path);
+  _sendPicture(){
     // call uploadImage (action) from props
     this.props.uploadImage(this.props.path)
+    // call navigate from navigation prop
+    this.props.navigation.navigate('Feed')
   }
 }
 
