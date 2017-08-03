@@ -1,3 +1,4 @@
+
 /*
  * Picture Presentational Component
  */

@@ -12,8 +12,8 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   return {
-    loadFeed: () => {
-      dispatch(loadFeed())
+    loadFeed: (images) => {
+      dispatch(loadFeed(images))
     }
   }
 }

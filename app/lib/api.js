@@ -3,7 +3,6 @@ import { Platform, } from 'react-native'
 
 import { storage } from '../index'
 import { database } from '../index'
-import { getLocation } from './location'
 
 const Blob = RNFetchBlob.polyfill.Blob
 const fs = RNFetchBlob.fs
