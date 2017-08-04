@@ -1,13 +1,14 @@
 /*
  * Login Presentational Component
  */
+import React, { Component } from 'react';
+import { View, } from 'react-native';
 
 import FBSDK from 'react-native-fbsdk';
-import { LoginManager } from 'react-native-fbsdk';
+import { LoginManager, AccessToken } from 'react-native-fbsdk';
+import firebase from 'firebase'
+
 const { LoginButton, } = FBSDK;
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { View, Button, } from 'react-native';
 
 class Login extends Component {
   render() {
@@ -22,6 +23,16 @@ class Login extends Component {
               } else if (result.isCancelled) {
                 alert("Login was cancelled");
               } else {
+                AccessToken.getCurrentAccessToken().then((accessTokenData) => {
+                  const credential = firebase.auth.FacebookAuthProvider.credential(accessTokenData.accessToken);
+                  firebase.auth().signInWithCredential(credential).then((result) => {
+                    // Promise successful
+                  }, (error) => {
+
+                  })
+                }, (error) => {
+                  console.log('Some error occured' + error)
+                })
                 this._onLogin()
               }
             }
