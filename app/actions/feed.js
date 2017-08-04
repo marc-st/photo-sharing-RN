@@ -6,3 +6,10 @@ export const loadFeed = data => {
     data
   }
 }
+export const updatePosition = (lat ,lon) => {
+  return {
+    type: types.UPDATE_POSITION,
+    lat,
+    lon
+  }
+}

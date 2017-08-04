@@ -9,3 +9,12 @@ export const loadFeed = createReducer({}, {
     }
   }
 })
+export const updatePosition = createReducer({}, {
+  [types.UPDATE_POSITION](state, action){
+    return {
+      ...state,
+      lat: action.lat,
+      lon: action.lon
+    }
+  }
+})

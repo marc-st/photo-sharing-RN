@@ -14,6 +14,15 @@ class Feed extends Component {
   }
   componentDidMount(){
     this.listenForChanges(database.ref('images'));
+
+    this.watchID = navigator.geolocation.watchPosition((position) => {
+      var lastPosition = JSON.stringify(position);
+      // dispatch action to put position in state
+      this.props.updatePosition(position.coords.latitude, position.coords.longitude)
+    });
+  }
+  componentWillUnmount(){
+    navigator.geolocation.clearWatch(this.watchID);
   }
   listenForChanges(imageRef) {
     imageRef.on('value', (dataSnapshot) => {
